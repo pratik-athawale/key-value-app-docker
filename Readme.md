@@ -53,3 +53,17 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 23. docker stop mongodb
 
 24. create mongo-init.js file 
+
+# use volume network
+
+25. docker-cc
+
+25. docker volume create key-value-data
+
+26. docker network create key-value-net
+
+27. make changes to start-db.sh to use this docker volume and network
+
+28. ./start-db.sh
+
+29. docker ps
