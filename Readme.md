@@ -51,3 +51,5 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 22. exit
 
 23. docker stop mongodb
+
+24. create mongo-init.js file 
