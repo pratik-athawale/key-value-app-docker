@@ -54,7 +54,7 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 
 24. create mongo-init.js file 
 
-# use volume network
+# use volume, network -----------------------------
 
 25. docker-cc
 
@@ -67,3 +67,58 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 28. ./start-db.sh
 
 29. docker ps
+
+# testing if we can connect to our mongodb container in same network
+
+30. docker run \
+-it --rm --name=debug_sh \
+--network=key-value-net \
+mongodb/mongodb-community-server:7.0-ubuntu2204 \
+mongosh mongodb://mongodb/key-value-db
+
+this should work and open mongodb shell, run next in shell
+
+31. show dbs
+wont work
+
+32. show collections
+wont work as well as it will ask for authentication, but at least we were able to connect 
+
+33. docker ps -a
+debug_sh should not be there as we had passed --rm flag 
+
+now lets connect and also pass credentials to get access to a specific db in container
+
+34. docker run \
+-it --rm --name=debug_sh \
+--network=key-value-net \
+mongodb/mongodb-community-server:7.0-ubuntu2204 \
+mongosh mongodb://key-value-user:key-value-password@mongodb/key-value-db
+
+this opens mongodb shell
+
+35. show collections
+this works as we have access to key-value-db, no errors, although it will be empty as there is no data
+
+36. show dbs
+shows no data
+
+37. use admin
+
+38. show collections
+this gives unauthorized error as we have access to to key-value-db only not others
+
+39. exit
+
+40. docker-cc
+
+40. docker volume ls
+
+41. docker volume rm key-value-data
+
+42. docker network ls
+
+43. docker network rm key-value-net
+
+
+
