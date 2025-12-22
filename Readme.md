@@ -138,5 +138,13 @@ run this 2-3 times
 49. docker volume ls
 as we can see despite running docker volume create there is only one volume, it doesn't create duplicates, but for dev friendly purpose we added that check in setup script
 
+50. ./start-db.sh 
+
+51. ./start-db.sh
+
+52. docker kill mongodb
+
+53. ./start-db.sh
+
 
 
