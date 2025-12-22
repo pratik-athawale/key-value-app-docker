@@ -1,6 +1,6 @@
 MONGODB_IMAGE="mongodb/mongodb-community-server"
 MONGODB_TAG="7.0-ubuntu2204"
-DB_CONTAINER_NAME="mongodb"
+source .env.db
 
 # Root credentials
 ROOT_USER="root-user"
