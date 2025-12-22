@@ -146,5 +146,22 @@ as we can see despite running docker volume create there is only one volume, it 
 
 53. ./start-db.sh
 
+# testing utility scripts
+54. ls -l
+
+55. ./cleanup.sh 
+
+56. ./start-db.sh
+
+57. ./cleanup.sh
+
+58. ./start-db.sh
+
+59. docker ps
+
+60. docker kill mongodb
+
+61. ./cleanup.sh
+
 
 
