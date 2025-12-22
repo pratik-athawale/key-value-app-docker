@@ -125,7 +125,18 @@ this gives unauthorized error as we have access to to key-value-db only not othe
 44. cd into key-value-app and run ./start-db.sh
 this gives error that network/volume is not there, so we need to make sure setup exists for this script to work, so create setup script file
 
+45. chmod +x setup.sh
 
+46. ./setup.sh 
+check if logic works
+
+47. docker volume ls
+
+48. docker volume create key-value-data
+run this 2-3 times
+
+49. docker volume ls
+as we can see despite running docker volume create there is only one volume, it doesn't create duplicates, but for dev friendly purpose we added that check in setup script
 
 
 
