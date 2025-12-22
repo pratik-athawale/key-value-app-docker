@@ -120,5 +120,12 @@ this gives unauthorized error as we have access to to key-value-db only not othe
 
 43. docker network rm key-value-net
 
+# improving utility scripts
+
+44. cd into key-value-app and run ./start-db.sh
+this gives error that network/volume is not there, so we need to make sure setup exists for this script to work, so create setup script file
+
+
+
 
 
