@@ -22,6 +22,7 @@ VOLUME_CONTAINER_PATH="/data/db"
 
 source setup.sh
 
+# if container already exists, exit
 if [ "$(docker ps -q -f name=$DB_CONTAINER_NAME)" ]; then
     echo "A container with name $DB_CONTAINER_NAME already exists."
     echo "The container will be removed when stopped."
@@ -38,6 +39,6 @@ docker run \
 -e KEY_VALUE_PASSWORD=$KEY_VALUE_PASSWORD \
 -p $LOCALHOST_PORT:$CONTAINER_PORT \
 -v $VOLUME_NAME:$VOLUME_CONTAINER_PATH \
--v ./db-config/mongo-init.js:/docker-entrypoint-initdb.d/mogo-init.js:ro \
+-v ./db-config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro \
 --network=$NETWORK_NAME \
 $MONGODB_IMAGE:$MONGODB_TAG
