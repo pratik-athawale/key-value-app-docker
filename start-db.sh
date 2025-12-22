@@ -20,6 +20,8 @@ CONTAINER_PORT=27017
 source .env.volume
 VOLUME_CONTAINER_PATH="/data/db"
 
+source setup.sh
+
 docker run \
 --rm  -d --name=$CONTAINER_NAME \
 -e MONGODB_INITDB_ROOT_USERNAME=$ROOT_USER \
