@@ -1,25 +1,25 @@
-# 1. stop and remove mongodb containers
-# 2. stop and remove app containers
+# 1. stop and remove app containers
+# 2. stop and remove mongodb containers
 # 3. remove volumes
 # 4. remove networks
 
-source .env.db
 source .env.backend
+source .env.db
 source .env.volume
 source .env.network
-
-if [ "$(docker ps -aq -f name=$DB_CONTAINER_NAME)" ]; then
-    echo "Removing container $DB_CONTAINER_NAME"
-    docker kill $DB_CONTAINER_NAME # docker rm $DB_CONTAINER_NAME add if not using --rm flag while running container
-else
-    echo "A container with name $DB_CONTAINER_NAME does not exists, skiping container deletion"
-fi
 
 if [ "$(docker ps -aq -f name=$BACKEND_CONTAINER_NAME)" ]; then
     echo "Removing container $BACKEND_CONTAINER_NAME"
     docker kill $BACKEND_CONTAINER_NAME # docker rm $BACKEND_CONTAINER_NAME add if not using --rm flag while running container
 else
     echo "A container with name $BACKEND_CONTAINER_NAME does not exists, skiping container deletion"
+fi
+
+if [ "$(docker ps -aq -f name=$DB_CONTAINER_NAME)" ]; then
+    echo "Removing container $DB_CONTAINER_NAME"
+    docker kill $DB_CONTAINER_NAME # docker rm $DB_CONTAINER_NAME add if not using --rm flag while running container
+else
+    echo "A container with name $DB_CONTAINER_NAME does not exists, skiping container deletion"
 fi
 
 if [ "$(docker volume ls -q -f name=$VOLUME_NAME)" ]; then
