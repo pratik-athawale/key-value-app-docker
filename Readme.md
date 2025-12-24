@@ -1,3 +1,6 @@
+# ------------------------------------------------
+#  here essentially we are going to create some scripts, which when run spin ups the mongodb container, the scripts handles the configuration, setup to run container and also the cleanup 
+# ------------------------------------------------
 1. docker run -d --name=mongodb mongodb/mongodb-community-server:7.0-ubuntu2204
 
 2. docker ps
