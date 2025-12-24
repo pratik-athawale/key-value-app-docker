@@ -10,3 +10,8 @@ mongodb/mongodb-community-server:7.0-ubuntu2204 \
 mongosh mongodb://key-value-user:key-value-password@mongodb/key-value-db
 make sure this works
 
+# setup express application
+
+4. cd into backend folder
+
+5. npm init -y
