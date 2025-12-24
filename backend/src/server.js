@@ -12,7 +12,7 @@ app.get('/health', (req, res) => {
 console.log('Connecting to DB');
 
 
-mongoose.connect('mongodb://mongodb/key-value-db', {
+mongoose.connect('mongodb://mongodb_c/key-value-db', {
     auth: {
         username: 'key-value-user',
         password: 'key-value-password'
