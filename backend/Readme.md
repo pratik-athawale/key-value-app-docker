@@ -56,3 +56,21 @@ show show `up`
 *note we were able to connect to mongodb container just be specifying container name mongodb_c and it resolved it, we didnt have to specify full address.
 
 17. create start-backend.sh script to build kv_express app image and run it with configuration needed
+
+# test running kv-express app scripts
+
+18. docker-cc
+
+19. chmod +x ./start-backend.sh
+
+20. cd into key-value-app
+
+21. ./start-db.sh
+
+22. ./start-backend.sh
+
+23. docker ps
+
+24. docker logs kv_express_server
+
+25. curl http://localhost:3000/health
