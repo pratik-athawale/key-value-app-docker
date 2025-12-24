@@ -5,8 +5,7 @@ source .env.network
 LOCALHOST_PORT=3000
 CONTAINER_PORT=3000
 
-BACKEND_IMAGE_NAME="kv_express_image"
-BACKEND_CONTAINER_NAME="kv_express_server"
+source .env.backend
 MONGODB_HOST="mongodb_c" # this should ideally match the name in .env.db but in case we 
 # want to connect to some other host we have introduced the variable here
 

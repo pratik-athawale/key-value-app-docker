@@ -81,3 +81,20 @@ show show `up`
 
 27. npm i --save-exact --save-dev nodemon@3.1.4
 
+# testing application and cleanup
+
+28. we will stop and remove both mongodb and express containers, and then will run containers and check if end points still return the data we persisted, basically verify if volumes are persisting the data or not. so use postman and hit end points to persist some data
+
+29. docker stop kv_express_server
+
+30. docker stop mongodb_c
+
+31. make sure `docker ps -a` is empty else remove them
+
+32. ./start-db.sh
+
+33. ./start-backend.sh
+
+34. hit get point with postman and check if it has the data or not
+
+35. 

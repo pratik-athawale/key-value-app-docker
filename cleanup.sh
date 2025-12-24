@@ -4,14 +4,22 @@
 # 4. remove networks
 
 source .env.db
+source .env.backend
 source .env.volume
 source .env.network
 
-if [ "$(docker ps -q -f name=$DB_CONTAINER_NAME)" ]; then
+if [ "$(docker ps -aq -f name=$DB_CONTAINER_NAME)" ]; then
     echo "Removing container $DB_CONTAINER_NAME"
     docker kill $DB_CONTAINER_NAME # docker rm $DB_CONTAINER_NAME add if not using --rm flag while running container
 else
     echo "A container with name $DB_CONTAINER_NAME does not exists, skiping container deletion"
+fi
+
+if [ "$(docker ps -aq -f name=$BACKEND_CONTAINER_NAME)" ]; then
+    echo "Removing container $BACKEND_CONTAINER_NAME"
+    docker kill $BACKEND_CONTAINER_NAME # docker rm $BACKEND_CONTAINER_NAME add if not using --rm flag while running container
+else
+    echo "A container with name $BACKEND_CONTAINER_NAME does not exists, skiping container deletion"
 fi
 
 if [ "$(docker volume ls -q -f name=$VOLUME_NAME)" ]; then
