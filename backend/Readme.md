@@ -25,3 +25,6 @@ body-parser@1.20.2 \
 --save-exact
 
 8. echo "node_modules" > .dockerignore
+
+9. now run `npm start`
+this wont work and gives `MongooseServerSelectionError: getaddrinfo ENOTFOUND mongodb_c` because it doesnt know what mongodb_c is like how we know its a container, for this what we can do is we can create a dockerimage for our express app, run its container in the same network in which mongodb_c is, then it should be able to resolve and connect to it.
