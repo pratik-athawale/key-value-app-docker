@@ -23,3 +23,5 @@ express@4.19.2 \
 mongoose@8.5.1 \
 body-parser@1.20.2 \
 --save-exact
+
+8. echo "node_modules" > .dockerignore
