@@ -32,3 +32,25 @@ this wont work and gives `MongooseServerSelectionError: getaddrinfo ENOTFOUND mo
 # dockerize express app
 
 10. create Dockerfile.dev to dockerize application
+
+11. docker build \
+-t key-value-backend \
+-f Dockerfile.dev \
+.
+
+12. docker images
+
+13. docker run \
+-d --name=backend \
+--network=key-value-net \
+-p 3000:3000 \
+key-value-backend
+
+14. docker ps
+
+15. docker logs backend
+this should show logs that express app is working and listening, connected to db and all.
+
+16. curl http://localhost:3000/health
+show show `up`
+*note we were able to connect to mongodb container just be specifying container name mongodb_c and it resolved it, we didnt have to specify full address.s
