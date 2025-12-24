@@ -74,3 +74,10 @@ show show `up`
 24. docker logs kv_express_server
 
 25. curl http://localhost:3000/health
+
+# adding hot reloading with nodemon
+
+26. our docker container is serving our express backend application, if we change something in code then the changes are not directly reflected in container, for that we have rebuild the image and run container again. but its cumbersome for development so what we want as we change something we want the docker container to automatically reflect the changes, which is basically hot reloading
+
+27. npm i --save-exact --save-dev nodemon@3.1.4
+
