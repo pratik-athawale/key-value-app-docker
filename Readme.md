@@ -1,13 +1,13 @@
 # ------------------------------------------------
 #  here essentially we are going to create some scripts, which when run spin ups the mongodb container, the scripts handles the configuration, setup to run container and also the cleanup 
 # ------------------------------------------------
-1. docker run -d --name=mongodb mongodb/mongodb-community-server:7.0-ubuntu2204
+1. docker run -d --name=mongodb_c mongodb/mongodb-community-server:7.0-ubuntu2204
 
 2. docker ps
 
-3. docker logs mongodb 
+3. docker logs mongodb_c 
 
-4. docker exec -it mongodb mongosh
+4. docker exec -it mongodb_c mongosh
 
 run following commands in mongodb shell
 
@@ -36,9 +36,9 @@ here one problem is anyone can exec into our container and view data, so we need
 15. ./start-db.sh 
 
 16. docker ps
-u should see mongodb container running
+u should see mongodb_c container running
 
-17. docker exec -it mongodb mongosh
+17. docker exec -it mongodb_c mongosh
 
 18. show dbs
 this time this wont work and will give authentication error
@@ -53,7 +53,7 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 
 22. exit
 
-23. docker stop mongodb
+23. docker stop mongodb_c
 
 24. create mongo-init.js file 
 
@@ -77,7 +77,7 @@ this works, but anything db does't exists, so it can't be concluded that anythin
 -it --rm --name=debug_sh \
 --network=key-value-net \
 mongodb/mongodb-community-server:7.0-ubuntu2204 \
-mongosh mongodb://mongodb/key-value-db
+mongosh mongodb://mongodb_c/key-value-db
 
 this should work and open mongodb shell, run next in shell
 
@@ -96,7 +96,7 @@ now lets connect and also pass credentials to get access to a specific db in con
 -it --rm --name=debug_sh \
 --network=key-value-net \
 mongodb/mongodb-community-server:7.0-ubuntu2204 \
-mongosh mongodb://key-value-user:key-value-password@mongodb/key-value-db
+mongosh mongodb://key-value-user:key-value-password@mongodb_c/key-value-db
 
 this opens mongodb shell
 
@@ -162,7 +162,7 @@ as we can see despite running docker volume create there is only one volume, it 
 
 59. docker ps
 
-60. docker kill mongodb
+60. docker kill mongodb_c
 
 61. ./cleanup.sh
 
